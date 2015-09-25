@@ -14,7 +14,7 @@ The BLS has a limit of 50 geographies per API call.  A minor annoyance, but not 
 
 We're now beyond the point of merging arrays.  Plus, if you look into it, you probably don't want the API call response data in it's native format.  Compact is not the word I'm looking for.  It's the opposite of compact.
 
-<b><i>"None of those problems Appy to Me.  I only need this year's data, and I'm only interested in Delaware." (3 counties)</i></b>
+<b><i>"None of those problems appy to me.  I only need this year's data, and I'm only interested in Delaware." (3 counties)</i></b>
 Even so, calling the API on the fly in your application is not a very wise decision; you'll burn through your quota of 500 API calls per day in no time.
 
 <b>A different solution is in order:</b>
@@ -24,7 +24,7 @@ Even so, calling the API on the fly in your application is not a very wise decis
 3.  Store the data somewhere safe. (Amazon S3 bucket)
 4.  Update the data automatically. (via cron)
 
-I've written these scripts to be able to accomplish these tasks.  I've written them in PHP (badly).  Because I am not too familiar with PHP, I basically write it as if it were Javascript.  That's why my code looks rediculous.
+I've written these scripts to be able to accomplish these tasks.  I've written them in PHP (badly).  Because I am not great with PHP, I basically write it as if it were Javascript.  That's why my code looks the way it does.
 
 If you just want the current BLS data... that will be an option.  It's almost ready.
 
