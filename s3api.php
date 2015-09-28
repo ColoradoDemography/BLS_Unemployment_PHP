@@ -30,8 +30,8 @@ for($p=0;$p<count($statesarray);$p=$p+1){
   
 	$result = $s3v2->putObject(array(
 	    'Bucket' => 'blsdata',   //name of the bucket to upload to
-        'Key'          => $p.'_bls.json',  //name of what you want the file to be called in your aws s3 bucket
-    'SourceFile'   => './json/'.$p.'_bls.json',  //name and path of the file to upload
+        'Key'          => $statesarray[$p].'_bls.json',  //name of what you want the file to be called in your aws s3 bucket
+    'SourceFile'   => './json/'.$statesarray[$p].'_bls.json',  //name and path of the file to upload
     'ContentType'  => 'text/plain',  //json is just text
     'ACL'          => 'public-read',  //immediately set as publicly available
 	));
