@@ -1,6 +1,7 @@
 <?php
 //todo: error catching
 require 'counties.php';
+require 'keydir/keys.php';
 
 
 $oldstate="01"; //initialize on alabama
@@ -96,7 +97,7 @@ $url = 'http://api.bls.gov/publicAPI/v2/timeseries/data/';
                 'seriesid'  => $geo,
                 'startyear' => $startyear,
                 'endyear'   => $endyear,
-                'registrationKey' => '33ae9d73336c448eb9294aea6f311df5',  //GET YOUR OWN KEY
+                'registrationKey' => $blskey,  //GET YOUR OWN KEY
                 'annualaverage' => true
         );
         $pd = json_encode($query);
