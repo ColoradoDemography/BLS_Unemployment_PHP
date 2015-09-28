@@ -8,11 +8,11 @@
 
 <b>Problem:</b>  If you're creating a webmap and you want to gather all the county data for your state in one API call - you might not be able to.  
 
-The BLS has a limit of 50 geographies per API call.  A minor annoyance, but not a big deal, right?  Make two calls, and merge a couple of arrays together.
+The BLS has a limit of 50 geographies per API call.  (Uhoh, Colorado has 64 counties).  A minor annoyance, but not a big deal, right?  Make two calls, and merge a couple of arrays together.
 
-<b>Another Issue:</b> Were you hoping to retrieve all data for the counties going back to 1990?  If so, you now need to make 4 API calls.  (That's just for Colorado.  If you need data for Texas you're now up to 12 API calls; data from 1990 to present for 254 counties.)
+<b>Another Issue:</b> Were you hoping to retrieve all data for the counties going back to 1990?  If so, you now need to make 4 API calls.  (The BLS will only give you 20 years worth of data per call.  If you need data for Texas you're now up to 12 API calls: data from 1990 to present for 254 counties.)
 
-We're now beyond the point of merging arrays.  Plus, if you look into it, you probably don't want the API call response data in it's native format.  Compact is not the word I'm looking for.  It's the opposite of compact.
+We're now beyond the point of merging arrays.  Plus, you really don't want the API response data in it's native format.  Compact is not the word I'm looking for.  It's the opposite of compact.  It would be a bandwidth killer for even a reasonable volume of data.
 
 <b><i>"None of those problems appy to me.  I only need this year's data, and I'm only interested in Delaware." (3 counties)</i></b>
 Even so, calling the API on the fly in your application is not a very wise decision; you'll burn through your quota of 500 API calls per day in no time.
