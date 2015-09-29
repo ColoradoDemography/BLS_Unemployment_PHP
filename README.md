@@ -36,3 +36,8 @@ https://s3-us-west-2.amazonaws.com/blsdata/08_bls.json
 <b>Problem:</b>  These state by state files are useless for me.  I need data for the entire US.
 
 Argh.  Okay fine.  Yes.  So to be practical, the architecture of your application would necessarily need to change.  It's not really practical (for loading times) to put everything in one huge file.  I'll create the data by year for the entire US.  That way you can ajax in the files as needed if someone toggles the YEAR dropdown in your application.
+
+
+**Disclaimer**
+
+This data was retrieved using the <a href="http://www.bls.gov/developers/home.htm" >BLS API</a>. BLS.gov cannot vouch for the data or analyses derived from these data after the data have been retrieved from BLS.gov.
