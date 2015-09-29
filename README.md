@@ -24,9 +24,14 @@ Even so, calling the API on the fly in your application is not a very wise decis
 3.  Store the data somewhere safe. (Amazon S3 bucket)
 4.  Update the data automatically. (via cron)
 
-I've written these scripts to be able to accomplish these tasks.  I've written them in PHP (badly).  Because I am not great with PHP, I basically write it as if it were Javascript.  That's why my code looks the way it does.
+I've written these scripts to be able to accomplish these tasks.  You'll notice they epitomize how a Javascript coder might write in PHP.  Don't be shy about calling me out, I can take the heat.  (pull requests also accepted).
 
-If you just want the current BLS data... that will be an option.  It's almost ready.
+If you just want the current BLS data... here's the link:
+https://s3-us-west-2.amazonaws.com/blsdata/01_bls.json
+
+**Replace the '01' in the above link with the FIPS code of your state.  For example, the link for Colorado data would be:**
+https://s3-us-west-2.amazonaws.com/blsdata/08_bls.json
+
 
 <b>Problem:</b>  These state by state files are useless for me.  I need data for the entire US.
 
