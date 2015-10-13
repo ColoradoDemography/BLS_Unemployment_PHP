@@ -158,6 +158,18 @@ if($argv[1]=="55"){$cstring = "LAUCN550010000000003,LAUCN550030000000003,LAUCN55
 if($argv[1]=="56"){$cstring = "LAUCN560010000000003,LAUCN560030000000003,LAUCN560050000000003,LAUCN560070000000003,LAUCN560090000000003,LAUCN560110000000003,LAUCN560130000000003,LAUCN560150000000003,LAUCN560170000000003,LAUCN560190000000003,LAUCN560210000000003,LAUCN560230000000003,LAUCN560250000000003,LAUCN560270000000003,LAUCN560290000000003,LAUCN560310000000003,LAUCN560330000000003,LAUCN560350000000003,LAUCN560370000000003,LAUCN560390000000003,LAUCN560410000000003,LAUCN560430000000003,LAUCN560450000000003,LAUCN999999999999999"; $carray = explode(",", $cstring);}
 
 
+$abspath="/var/www/html/BLS_Unemployment_PHP/";
+
+$hostname = ($_SERVER['HOSTNAME']);
+
+if($hostname=="php-lamp-6548"){
+  $abspath = '';
+}
+
+
+
+
+
 $oldstate=$argv[1]; //initialize on parameter
 $currentstate= array();  //all county fips codes per the current state
 
@@ -215,11 +227,11 @@ $state =  substr($carray[$i],5,2);  //extract the state fips from the BLS LAUCN 
     
 //create a json folder to hold the data
 if(!file_exists('json')){
-mkdir("json", 0777, true) or die("cant do it");
+mkdir($abspath."json", 0777, true) or die("cant do it");
 }
 
 //write json data to a file by state fips ($oldstate)
-$myfile = fopen("json/".$oldstate."_bls.json", "w") or die("Unable to open file!");
+$myfile = fopen($abspath."json/".$oldstate."_bls.json", "w") or die("Unable to open file!");
 fwrite($myfile, json_encode($exp_array));
 fclose($myfile);
     

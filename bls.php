@@ -1,6 +1,17 @@
 <?php
+
+$abspath="/var/www/html/BLS_Unemployment_PHP/";
+
+$hostname = ($_SERVER['HOSTNAME']);
+
+if($hostname=="php-lamp-6548"){
+  $abspath = '';
+}
+
+
+
 //todo: error catching
-require 'counties.php';
+require $abspath.'counties.php';
 
 $oldstate="01"; //initialize on alabama
 $currentstate= array();  //all county fips codes per the current state
@@ -59,11 +70,11 @@ $state =  substr($carray[$i],5,2);  //extract the state fips from the BLS LAUCN 
     
 //create a json folder to hold the data
 if(!file_exists('json')){
-mkdir("json", 0777, true) or die("cant do it");
+mkdir($abspath."json", 0777, true) or die("cant do it");
 }
 
 //write json data to a file by state fips ($oldstate)
-$myfile = fopen("json/".$oldstate."_bls.json", "w") or die("Unable to open file!");
+$myfile = fopen($abspath."json/".$oldstate."_bls.json", "w") or die("Unable to open file!");
 fwrite($myfile, json_encode($exp_array));
 fclose($myfile);
     
