@@ -293,6 +293,8 @@ function crunchdata($data){
 
 $alldata = array();
 
+  //print_r($data);
+  
 //create the perfect json from bls result set    
 for($i=0;$i<count($data['Results']['series']); $i=$i+1){
        $output = array( 

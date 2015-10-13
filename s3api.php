@@ -1,7 +1,16 @@
 
 <?php
-	require 'aws.phar';  //get this file here:  https://github.com/aws/aws-sdk-php/releases
-  require 'keydir/keys.php'; //AWS keys
+$abspath="/var/www/html/BLS_Unemployment_PHP/";
+
+$hostname = ($_SERVER['HOSTNAME']);
+
+if($hostname=="php-lamp-6548"){
+  $abspath = '';
+}
+
+
+	require $abspath.'aws.phar';  //get this file here:  https://github.com/aws/aws-sdk-php/releases
+  require $abspath.'keydir/keys.php'; //AWS keys
 
 
 $s3_path = 'https://s3-us-west-2.amazonaws.com/blsdata/';
@@ -38,10 +47,12 @@ for($p=0;$p<count($statesarray);$p=$p+1){
   //below compares s3 file size to local file size.  if local version is bigger (newer) upload it.  if not - well, probably a bls api error.  better luck next week.
   if(curl_get_file_size( $s3_path.$statesarray[$p]."_bls.json" )<filesize("json/".$statesarray[$p]."_bls.json")){
   
+    
+    
 	$result = $s3v2->putObject(array(
 	    'Bucket' => 'blsdata',   //name of the bucket to upload to
         'Key'          => $statesarray[$p].'_bls.json',  //name of what you want the file to be called in your aws s3 bucket
-    'SourceFile'   => './json/'.$statesarray[$p].'_bls.json',  //name and path of the file to upload
+    'SourceFile'   => $abspath.'json/'.$statesarray[$p].'_bls.json',  //name and path of the file to upload
     'ContentType'  => 'text/plain',  //json is just text
     'ACL'          => 'public-read',  //immediately set as publicly available
 	));
