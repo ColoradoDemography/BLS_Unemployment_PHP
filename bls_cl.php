@@ -162,7 +162,7 @@ $abspath="/var/www/html/BLS_Unemployment_PHP/";
 
 $hostname = ($_SERVER['HOSTNAME']);
 
-if($hostname=="php-lamp-6548"){
+if($hostname=="red-meteor-147235"){
   $abspath = '';
 }
 
